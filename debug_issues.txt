@@ -1,0 +1,10 @@
+debug记录
+1.pytorch-lightning安装后import  error
+ImportError: cannot import name 'OrderedDict' from 'typing'
+解决：更新python版本到3.7.2(原来是3.7.0)   conda install python=3.7.2
+
+2.torch.rfft error
+#K = th.rfft(th.eye(N) / S, 1)[:frame_len] ## rstft edit
+K = th.fft.rfft(th.eye(N)/S, dim=-1)
+K = th.stack((K.real, K.imag), -1)
+
